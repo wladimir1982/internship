@@ -1,0 +1,22 @@
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+select {
+   display: block;
+}
+
+.select {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.select-one {
+  width: 95%;
+  margin: 0 auto;
+}

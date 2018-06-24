@@ -1,0 +1,18 @@
+
+<div class="row">
+  <div class="input-field col s10">
+    <input class="text" type="text" [(ngModel)]="tagsNews">
+  </div>
+  <a class="btn-floating btn-large waves-effect waves-light red">
+    <i class="material-icons" (click)="addTagNews()">add</i>
+  </a>
+  <p class="text" *ngFor="let tag of tagsArr; let i = index">
+    {{ tag }}
+    <!--{{ i }}-->
+    <a (click)="removeTagNews(i)"> <i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+  </p>
+
+</div>
+
+
+

@@ -1,0 +1,58 @@
+<header *ngIf="!nav" class="header" >
+  <!--[ngStyle]="{'background-image': 'url(../../assets/img/imagebg.png)'}-->
+  <div class="container">
+    <div id="row" class="header__row">
+      <div class="header__logo">
+        <a href="#">
+          <img src="../../assets/img/logo.png" alt="Bouncy">
+        </a>
+      </div>
+      <!--            Header menu - Begin-->
+      <nav id="menu" class="header__menu">
+        <ul class="menu">
+          <li class="menu__item current">
+            <a class="menu__link" (click)="goNav()">Home</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" (click)="goNav('/setup')">Info Page</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" (click)="goNav('/test')">Current</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" (click)="goNav('/registration-form')">New User</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" (click)="goNav('/users')">Users</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" (click)="goNav('/tasks')">Tasks Page</a>
+          </li>
+
+        </ul>
+      </nav>
+      <!--            Header menu - Finish-->
+    </div>
+    <h1 class="header__caption">We Are Code Cafe</h1>
+    <p class="header__depiction">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+      praesentium voluptatum</p>
+
+  </div>
+
+</header>
+
+
+
+<nav *ngIf="nav">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a (click)="goNav()">Home</a></li>
+      <li><a (click)="goNav('/setup')">Info page</a></li>
+      <li><a (click)="goNav('/test')">Current</a></li>
+      <li><a (click)="goNav('/registration-form')">New User</a></li>
+      <li><a (click)="goNav('/users')">Users</a></li>
+      <li><a (click)="goNav('/tasks')">Tasks Page</a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,17 @@
+.row {
+  color: brown;
+  font-weight: 700;
+}
+
+span {
+  color: black;
+  font-weight: 400;
+}
+
+p {
+  color: green;
+}
+
+.error {
+  color: red;
+}

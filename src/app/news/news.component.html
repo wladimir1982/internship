@@ -1,0 +1,17 @@
+<article class="blog-page__article article">
+
+  <a class="waves-effect waves-light btn" (click)="toggleDesc()">button</a>
+
+  <header class="article__header">
+    <h2 class="article__header-title">{{title}}</h2>
+  </header>
+  <main class="article__main">
+    <p *ngIf="visible" class="article__main-text">{{description}}</p>
+  </main>
+  <footer class="article__footer">
+    <a [routerLink]="['info', id]" class="article__footer-read">
+      <span class="article__footer-text">continue reading</span>
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </a>
+  </footer>
+</article>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    Login: <span>{{ email }}</span>
+  </div>
+  <div class="row">
+    Phone: <span>{{ phone.value }}</span>
+  </div>
+  <div class="row">
+    First name: <span>{{ firstName }}</span>
+  </div>
+  <div class="row">
+    Last name: <span>{{ lastName }}</span>
+  </div>
+  <div class="row">
+    Country: <span>{{ country.name }}</span>
+  </div>
+    <div class="row">
+      City: <span>{{ city }}</span>
+    </div>
+  <div class="row">
+    About: <span>{{ desc }}</span>
+  </div>
+  <div *ngIf="buttons" class="buttons">
+    <button class="btn" (click)="goBack()">go back</button>
+    <button class="btn waves-effect waves-light" type="submit" name="action" (click)="onSubmit()">Submit</button>
+  </div>
+  <p *ngIf="loading">Загрузка...</p>
+  <p *ngIf="success">Данные успешно переданы</p>
+  <p class="error" *ngIf="notSuccess">Данные не переданы</p>
+
+</div>

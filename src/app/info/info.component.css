@@ -1,0 +1,19 @@
+.info {
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-family: Arial, sans-serif;
+}
+.info-title {
+  margin: 0 auto;
+}
+
+.info-description {
+  margin-bottom: 30px;
+}
+
+span {
+  color: brown;
+  font-weight: bold;
+  text-transform: uppercase;
+}

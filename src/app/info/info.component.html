@@ -1,0 +1,27 @@
+<div class="info">
+
+  <header class="header-info">
+    <h2 class="info-title">{{ article?.title }}</h2>
+  </header>
+
+  <main class="info-main">
+    <p class="info-description">
+    </p>
+
+    <h4>{{ article?.id }} </h4>
+    <h4> {{ article?.email }} </h4>
+    <p> {{ article?.description }} </p>
+  </main>
+
+  <footer class="info-footer">
+    <button class="btn" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i> go back</button>
+  </footer>
+  <a [routerLink]="['/info', 1]" class="article__footer-read">
+    <span class="article__footer-text">continue reading</span>
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </a>
+  <a [routerLink]="['/info', 2]" class="article__footer-read">
+    <span class="article__footer-text">continue reading</span>
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </a>
+</div>

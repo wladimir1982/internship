@@ -1,0 +1,121 @@
+<div class="row">
+  <form [formGroup]="form" class="col s12">
+
+     <div class="row">
+      <div class="input-field col s12">
+        <div [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
+           <input
+        [(ngModel)]="email"
+        formControlName="email"
+        name="email"
+        placeholder="Email"
+        type="text">
+
+          <small *ngIf="form.get('email').invalid && form.get('email').touched">
+            <span *ngIf="form.get('email').errors['email']">Введите корректный email</span>
+            <span *ngIf="form.get('email').errors['emailIsUsed']">Такой email уже существует</span>
+          </small>
+       </div>
+      </div>
+    </div>
+
+    <div [formGroup]="form.controls['account']">
+      <div class="row">
+        <div class="input-field col s12">
+          <div [ngClass]="{'has-error': form.get('account.confirm').invalid && form.get('account.confirm').touched}">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            name="password"
+            placeholder="Password">
+
+          <small *ngIf="form.get('account.password').invalid && form.get('account.password').touched">
+            <span *ngIf="form.get('account.password').errors['required']">Введите пароль!</span>
+            <span *ngIf="form.get('account.password').errors['pattern']">Пароль должен быть от 6 до 12 символов и содержать буквы верхнего и нижнего регистра латинского алфавита!</span>
+          </small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+
+          <div [ngClass]="{'has-error': form.get('account.confirm').invalid && form.get('account.confirm').touched}">
+            <input
+              type="password"
+              class="form-control"
+              id="confirm"
+              formControlName="confirm"
+              name="confirm"
+              placeholder="Confirm Password">
+
+            <small *ngIf="form.get('account.confirm').touched">
+              <span *ngIf="form.get('account.confirm').errors?.required">Введите пароль!</span>
+              <span *ngIf="form.get('account').errors?.mismatch">Пароли не совпадают!</span>
+            </small>
+         </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div formArrayName="phoneNumbers">
+      <div class="row"
+           *ngFor="let foneNumber of form.controls['phoneNumbers']['controls'];
+           let i = index">
+    <div class="input-field col s10">
+      <div [ngClass]="{'has-error': form.get('phoneNumbers').invalid &&  form.get('phoneNumbers').touched}">
+      <i class="material-icons prefix">phone</i>
+      <input
+        name="phoneNumber[{{phoneId}}]"
+        [formControlName]="i"
+        id="icon_telephone"
+        type="tel"
+        placeholder="Phone"
+        class="validate">
+
+        <small *ngIf="form.get('phoneNumbers').touched">
+          <span *ngIf="foneNumber.hasError('required'); let i = index">Введите корректный номер в формате +38XXXYYYYYYY, где XXX - код оператора, YYYYYYY - номер абонента</span>
+        </small>
+      </div>
+    </div>
+      <a
+        *ngIf="i === 0"
+        class="btn-floating btn-large waves-effect waves-light red">
+        <i class="material-icons" (click)="addPhone()">add</i>
+      </a>
+        <a
+          *ngIf="i !== 0"
+          (click)="removePhone(i)"> <i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+
+      </div>
+    </div>
+
+    <!--<a [routerLink]="['/one']" class="waves-effect waves-light btn">next</a>-->
+    <!--<a (click)="goNext()" class="waves-effect waves-light btn" type="submit">next-->
+      <!--&lt;!&ndash;[disabled]="form.invalid"&ndash;&gt;-->
+      <!--<i class="material-icons right">send</i>-->
+    <!--</a>-->
+    <button  class="btn waves-effect waves-light" type="submit" name="action" (click)="goNext()">next
+    <i class="material-icons right">send</i>
+    </button>
+
+  </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

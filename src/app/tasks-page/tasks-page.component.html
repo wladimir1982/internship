@@ -1,0 +1,77 @@
+<header>
+  <div class="row">
+    <div class="input-field col s10">
+      <input
+        [(ngModel)]="task.title"
+        name="task"
+        id="1"
+        type="text"
+        class="validate"
+        placeholder="Adding a task...">
+    </div>
+    <div class="col s2">
+      <a class="btn-floating btn-large waves-effect waves-light red" (click)="addTask()"><i
+        class="material-icons">add</i></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="row">
+    <div class="col s3">
+      <h5>tasks</h5>
+      <div *ngFor="let task of doTasks; let i = index">
+        <app-task [task]="task"
+                  (remove)="deleteTask(doTasks, task.id)"
+                  (transferTask)="transferNext(progressTasks, task); deleteTask(doTasks, task.id, true)"
+                  (swapU)="swapTaskUp(doTasks, task.id)"
+                  (swapD)="swapTaskDown(doTasks, task.id)"
+                  [isDelete]="true"
+                  [arrowUp]="i != 0"
+                  [arrowDown]="i < doTasks.length - 1"
+                  [index]="i"
+                  [next]="true"
+                  [ngStyle]="{color: 'red'}"></app-task>
+      </div>
+    </div>
+
+    <div class="col s1">
+      <a *ngIf="doTasks.length" (click)="transferTasks(progressTasks, doTasks)">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="col s3">
+      <h5>progress</h5>
+      <div *ngFor="let task of progressTasks">
+        <app-task [task]="task"
+                  (remove)="deleteTask(progressTasks, task.id)"
+                  (transferTask)="transferNext(doneTasks, task); deleteTask(progressTasks, task.id, true)"
+                  [next]="true"
+                  [ngStyle]="{color: 'orange'}"></app-task>
+      </div>
+    </div>
+
+    <div class="col s1">
+      <a *ngIf="progressTasks.length" (click)="transferTasks(doneTasks, progressTasks)">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a *ngIf="doneTasks.length" (click)="transferTasks(progressTasks, doneTasks)">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="col s4">
+      <h5>done</h5>
+      <div *ngFor="let task of doneTasks">
+        <app-task [task]="task"
+                  (remove)="deleteTask(doneTasks, task.id)"
+                  (transferTask)="transferNext(progressTasks, task); deleteTask(doneTasks, task.id, true)"
+                  [prev]="true"
+                  [ngStyle]="{color: 'forestgreen'}"></app-task>
+      </div>
+    </div>
+
+  </div>
+</main>
+

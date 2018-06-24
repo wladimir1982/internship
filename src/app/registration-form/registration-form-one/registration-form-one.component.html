@@ -1,0 +1,72 @@
+<div class="row">
+  <form [formGroup]="form" class="col s12">
+    <div class="row">
+    <div class="input-field col s6">
+      <input [(ngModel)]="firstName"
+             formControlName="firstName"
+             name="firstName"
+             placeholder="First Name"
+             id="first_name"
+             type="text"
+             class="validate">
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="lastName"
+             formControlName="lastName"
+             name="lastName"
+             placeholder="Last Name"
+             id="last_name"
+             type="text"
+             class="validate">
+    </div>
+    </div>
+
+    <div class="row">
+        <select
+          class="select form-control"
+          (change)="change($event.target.value)"
+          [(ngModel)]="country"
+          formControlName="country">
+          <option value="" disabled selected>Choose your country</option>
+          <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+        </select>
+      </div>
+    <div class="row">
+      <select
+        class="select-one form-control"
+        [(ngModel)]="city"
+        formControlName="city">
+        <option value="" disabled selected>Choose your city</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+            <textarea [(ngModel)]="desc"
+                      formControlName="desc"
+                      placeholder="Write a little about yourself"
+                      id="textarea1"
+                      name="desc"
+                      class="materialize-textarea">
+            </textarea>
+      </div>
+      </div>
+
+  </form>
+</div>
+
+
+<div class="buttons">
+  <button class="btn" (click)="goBack()">go back</button>
+  <!--<a [routerLink]="['/two']" class="waves-effect waves-light btn">next</a>-->
+  <a (click)="goNext()" class="waves-effect waves-light btn">next
+    <i class="material-icons right">send</i>
+  </a>
+  <!--<button class="btn waves-effect waves-light" type="submit" name="action" (click)="goNext()">Submit-->
+    <!--<i class="material-icons right">send</i>-->
+  <!--</button>-->
+
+</div>
+
+

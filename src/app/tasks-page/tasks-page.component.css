@@ -1,0 +1,17 @@
+
+.row {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h5 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+}
+.fa {
+  padding-top: 17px;
+}
+
+
+

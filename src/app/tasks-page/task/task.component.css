@@ -1,0 +1,21 @@
+
+.task {
+  display: block;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+span {
+  font-weight: 500;
+}

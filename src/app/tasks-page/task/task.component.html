@@ -1,0 +1,27 @@
+
+<div class="col s12">
+  <div class="task-list">
+    <div class="task-item">
+      <div class="wrap">
+        <span>{{ task.id + '.' + ' ' }}</span>
+        <a *ngIf="isDelete" (click)="removeTask(task.id)">
+          <i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+        <a *ngIf="next" (click)="transferFurther()">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="prev" (click)="transferFurther()">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="arrowUp" (click)="swapUp()">
+          <i class="fa fa-arrow-up" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="arrowDown" (click)="swapDown()">
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+      <p class="task">
+        {{ task.title }}
+      </p>
+    </div>
+  </div>
+</div>

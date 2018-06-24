@@ -1,0 +1,62 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th (click)="sort('firstName')">First Name
+        <i class="fa"
+           aria-hidden="true"
+           *ngIf="key =='firstName'"
+           [ngClass]="{'fa-chevron-down':reverse, 'fa-chevron-up':!reverse}"></i>
+      </th>
+      <th (click)="sort('lastName')">Last Name
+        <i class="fa"
+           aria-hidden="true"
+           *ngIf="key =='lastName'"
+           [ngClass]="{'fa-chevron-down':reverse, 'fa-chevron-up':!reverse}"></i>
+      </th>
+      <th (click)="sort('country')">Country
+        <i class="fa"
+           aria-hidden="true"
+           *ngIf="key =='country'"
+           [ngClass]="{'fa-chevron-down':reverse, 'fa-chevron-up':!reverse}"></i>
+      </th>
+      <th (click)="sort('city')">City
+        <i class="fa"
+           aria-hidden="true"
+           *ngIf="key =='city'"
+           [ngClass]="{'fa-chevron-down':reverse, 'fa-chevron-up':!reverse}"></i>
+      </th>
+      <th (click)="sort('email')">Email
+        <i class="fa"
+           aria-hidden="true"
+           *ngIf="key =='email'"
+           [ngClass]="{'fa-chevron-down':reverse, 'fa-chevron-up':!reverse}"></i>
+      </th>
+    </tr>
+
+  <tr *ngIf="!visible">
+    <td><input type="text" name="firstName" placeholder="Filter by First Name" [(ngModel)]="filter.firstName"></td>
+    <td><input type="text" name="lastName" placeholder="Filter by Last Name" [(ngModel)]="filter.lastName"></td>
+    <td><input type="text" name="country" placeholder="Filter by Country" [(ngModel)]="filter.country"></td>
+    <td><input type="text" name="city" placeholder="Filter by City" [(ngModel)]="filter.city"></td>
+    <td><input type="text" name="email" placeholder="Filter by Email" [(ngModel)]="filter.email"></td>
+  </tr>
+
+    <a (click)="toggleFilter()">
+      <i class="fa "
+         aria-hidden="true"
+         [ngClass]="{'fa-times-circle-o':!visible, 'fa-plus-circle':visible}"
+    ></i></a>
+
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users | sort: key : reverse | userFilter: filter; let i = index">
+    <!--<tr *ngFor="let user of users | orderBy: key : reverse; let i = index">-->
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.country}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,74 @@
+<div [ngSwitch]="step">
+  <!------------------------------------------------Step_1------------------------------------------------------------->
+  <div class="container" *ngSwitchCase="1">
+    <div class="row">
+      <form class="col s12">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input [(ngModel)]="login"
+                   name="email"
+                   placeholder="Login or Email"
+                   id="email"
+                   type="email"
+                   class="validate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Enter password" id="password" type="password" class="validate">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Enter password again" id="pass" type="password" class="validate">
+          </div>
+        </div>
+        <button class="btn" (click)="nextStep()">next</button>
+      </form>
+    </div>
+  </div>
+  <!------------------------------------------------Step_2------------------------------------------------------------->
+  <div class="container" *ngSwitchCase="2">
+    <div class="row">
+      <form class="col s12">
+        <div class="input-field col s6">
+          <input [(ngModel)]="firstName" name="firstName" placeholder="First Name" id="first_name" type="text"
+                 class="validate">
+        </div>
+        <div class="input-field col s6">
+          <input [(ngModel)]="lastName" name="lastName" placeholder="Last Name" id="last_name" type="text"
+                 class="validate">
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea placeholder="Write a little about yourself"
+                      id="textarea1"
+                      class="materialize-textarea">
+            </textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="buttons">
+      <button class="btn" (click)="prevStep()">go back</button>
+      <button class="btn" (click)="nextStep()">next</button>
+    </div>
+  </div>
+  <!------------------------------------------------Step_3------------------------------------------------------------->
+  <div class="container" *ngSwitchCase="3">
+    <div class="row">
+      Login: {{login}}
+    </div>
+    <div class="row">
+      First name: {{firstName}}
+    </div>
+    <div class="row">
+      Last name: {{lastName}}
+    </div>
+    <button class="btn" (click)="prevStep()">go back</button>
+  </div>
+</div>

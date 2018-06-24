@@ -1,0 +1,42 @@
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.caption {
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+input[type=email]:not(.browser-default) {
+  padding-left: 10px;
+}
+
+.title, .text {
+  margin: auto;
+}
+
+input:not([type]), input[type=text]:not(.browser-default) {
+  margin: 0 auto 30px;
+  padding-left: 10px;
+}
+
+.row, .s12 {
+  width: 84%;
+  margin: auto;
+  padding-left: 10px;
+}
+.materialize-textarea {
+  padding-left: 10px;
+}
+
+
+
+.btn {
+  width: 120px;
+  margin: auto;
+}
+

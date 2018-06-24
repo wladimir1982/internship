@@ -1,0 +1,19 @@
+.row {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.btn {
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+span {
+  color: red;
+}
+
+.temp {
+  background-color: #ee6e73;
+  margin-bottom: 20px;
+}
+
